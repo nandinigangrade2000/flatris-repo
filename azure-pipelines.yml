@@ -11,10 +11,10 @@ pool:
 
 steps:
 - task: NodeTool@0
-  displayName: 'Install Node.js 18'
+
   inputs:
     versionSpec: '18.x'
-  displayName: 'Install Node.js'
+
 
 - script: |
     echo "Node Version:"
