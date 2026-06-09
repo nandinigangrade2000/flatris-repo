@@ -31,11 +31,11 @@ steps:
     echo "Installed Versions:"
     npm ls next || true
     npm ls webpack || true
-    displayName: 'Install Dependencies'
+  displayName: 'Install Dependencies'
     
 - script: |
     npm run build
-    displayName: 'Build Application'
+  displayName: 'Build Application'
 
 
 
