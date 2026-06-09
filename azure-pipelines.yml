@@ -11,11 +11,28 @@ pool:
 
 steps:
 - task: NodeTool@0
+  displayName: 'Install Node.js 18'
   inputs:
-    versionSpec: '20.x'
+    versionSpec: '18.x'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
+    echo "Node Version:"
+    node -v
+
+    echo "NPM Version:"
+    npm -v
+
+    echo "Cleaning npm cache..."
+    npm cache clean --force
+    echo "Installing dependencies..."
+    npm ci
+
+    echo "Installed Versions:"
+    npm ls next || true
+    npm ls webpack || true
+  displayName: 'Install Dependencies'
+      
+- script: |
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm build applications'
